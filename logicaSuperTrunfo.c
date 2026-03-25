@@ -5,7 +5,7 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
 // Siga os comentários para implementar cada parte do desafio.
 
-int main() {
+int main(){
     // Definição das variáveis para armazenar as propriedades das cidades
      char estado1, estado2;
      char codigo1[4], codigo2[4];
@@ -124,14 +124,17 @@ int main() {
 
     printf("DIGITE UMA OPÇÃO:\n");
     printf("1. COMPARACAO DE ATRIBUTOS\n");
-    printf("2. COMPARAR TODOS OS ATRIBUTOS.\n");
-    printf("3. SAIR.\n");
+    printf("2. SAIR.\n");
     scanf("%d", &opcao);
 
     switch (opcao)
     {
     case 1:
-        int subopcao; 
+        {
+        int subopcao = 0; 
+        int pontoscarta1 = 0, pontoscarta2 = 0;
+        while (subopcao !=8)
+        {
         printf("SELECIONE O ATRIBUTO QUE DESEJA COMPARAR:\n");
         printf("1. POPULACAO.\n");
         printf("2. AREA.\n");
@@ -140,57 +143,82 @@ int main() {
         printf("5. PIB. PER CAPITA\n");
         printf("6. PONTOS TURISTICOS.\n");
         printf("7. SUPER PODER.\n");
+        printf("8. FINALIZAR COMPARACAO.\n");
         scanf("%d", &subopcao);
-        
-        break;
 
         switch (subopcao)
         {
         case 1:
             printf("COMPARANDO POPULACAO...\n");
-            if (populacao1 > populacao2){
-                printf("CARTA 1 VENCEU");
-            }else if (populacao2 > populacao1){
-                printf("CARTA 2 VENCEU");
-            }else{
-                printf("===EMPATE===\n");
-            }
-            }
+            if (populacao1 > populacao2) pontoscarta1++;
+            else if (populacao2 > populacao1) pontoscarta2++;
             break;
 
             case 2:
             printf("COMPARANDO AREA...\n");
-            if(area1 > area2){
-                printf("CARTA 1 VENCEU");
-            }else if(area2 > area1){
-                printf("CARTA 2 VENCEU!");
-            }else{
-                printf("===EMPATE!===\n");
-            }
-            }
+            if(area1 > area2) pontoscarta1++;
+            else if(area2 > area1) pontoscarta2++;
             break;
-        
-        default:
+
+            case 3:
+            printf("COMPARANDO PIB...\n");
+            if(pib1 > pib2) pontoscarta1++;
+            else if(pib2 > pib1) pontoscarta2++;
             break;
+
+            case 4:
+            printf("COMPARANDO DENSIDADE POP...\n");
+            if(densidadePop1 < densidadePop2) pontoscarta1++;
+            else if(densidadePop2 < densidadePop1) pontoscarta2++;
+            break;
+
+            case 5:
+            printf("COMPARANDO PIB PER CAPITA...\n");
+            if(pib_per_capita1 > pib_per_capita2) pontoscarta1++;
+            else if(pib_per_capita2 > pib_per_capita1) pontoscarta2++;
+            break;
+
+            case 6:
+            printf("COMPARANDO PONTOS TURISTICOS...\n");
+            if(pontos1 > pontos2) pontoscarta1++;
+            else if (pontos2 > pontos1) pontoscarta2++;
+            break;
+
+            case 7:
+            printf("COMPARANDO SUPER PODER...\n");
+            if(superPoder1 > superPoder2) pontoscarta1++;
+            else if(superPoder2 > superPoder1) pontoscarta2++;
+            break;
+
+            case 8:
+            printf("\nFINALIZANDO COMPARACAO...\n");
+            break;
+
+            default:
+            printf("SUBOPCAO INVALIDA\n");
+            break;
+            }
         }
-        break;
+        if (pontoscarta1 > pontoscarta2){
+        printf("CARTA 1 VENCEU!\n");
+        }else if(pontoscarta2 > pontoscarta1){
+        printf("CARTA 2 VENCEU\n");
+        }else{
+        printf("===EMPATE!===\n");
+        }
+         break;
     case 2:
-        printf("COMPARANDO TODOS OS ATRIBUTOS\n");
-        break;
-    case 3:
-        printf("SAINDO...");
-        break;
+     printf("SAINDO...\n");
+     break;
+
     default:
-        printf("OPCAO INVALIDA!\n");
-        break;
+     printf("OPCAO INVALIDA!\n");
+     break;
     }
-
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
-
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
-
     return 0;
 }
+}
+
+
+
+
