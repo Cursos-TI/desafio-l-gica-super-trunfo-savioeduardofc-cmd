@@ -123,8 +123,9 @@ int main(){
     int opcao;
 
     printf("DIGITE UMA OPÇÃO:\n");
-    printf("1. COMPARACAO DE ATRIBUTOS\n");
-    printf("2. SAIR.\n");
+    printf("1. COMPARACAO DE ATRIBUTOS.\n");
+    printf("2. COMPARE DOIS ATRIBUTOS DIFERENTES.\n");
+    printf("3. SAIR.\n");
     scanf("%d", &opcao);
 
     switch (opcao)
@@ -147,21 +148,24 @@ int main(){
             printf("COMPARANDO POPULACAO...\n");
             printf("ATRIBUTO COMPARADO (POPULACAO)\n");
             if (populacao1 > populacao2){
-                printf("CARTA 1 VENCEU! %d, populacao1");
-            }else if (populacao2 > populacao1){
-                printf("CARTA 2 VENCEU! %d, populacao2");
+                printf("CARTA 1 VENCEU! %d\n", populacao1);
             }else{
+                 if(populacao2 > populacao1){
+                printf("CARTA 2 VENCEU! %d\n", populacao2);
+                }else{
                 printf("===EMPATE!===\n");
+                }
             }
+                
             break;
 
             case 2:
             printf("COMPARANDO AREA...\n");
             printf("ATRIBUTO COMPARADO (AREA)\n");
             if(area1 > area2){
-                printf("CARTA 1 VENCEU! %f, area1\n");
+                printf("CARTA 1 VENCEU! %f\n", area1);
             }else if(area2 > area1){
-                printf("CARTA 2 VENCEU! %f, area2\n");
+                printf("CARTA 2 VENCEU! %f\n", area2);
             }else{
                 printf("===EMPATE!===\n");
             }
@@ -171,11 +175,13 @@ int main(){
             printf("COMPARANDO PIB...\n");
             printf("ATRIBUTO COMPARADO (PIB)\n");
             if(pib1 > pib2){
-                printf("CARTA 1 VENCEU! %f, pib1\n");
-            }else if(pib2 > pib1){
-                printf("CARTA 2 VENCEU! %f, pib2\n");
+                printf("CARTA 1 VENCEU! %f\n", pib1);
             }else{
-                printf("===EMPATE!===");
+                if(pib2 > pib1){
+                printf("CARTA 2 VENCEU! %f\n", pib2);
+                }else{
+                printf("===EMPATE!===\n");
+                }
             }
             break;
 
@@ -183,9 +189,9 @@ int main(){
             printf("COMPARANDO DENSIDADE POP...\n");
             printf("ATRIBUTO COMPARADO (DENS. POP.)\n");
             if(densidadePop1 < densidadePop2){
-                printf("CARTA 1 VENCEU! %f, densidadePop1\n");
+                printf("CARTA 1 VENCEU! %f\n", densidadePop1);
             }else if(densidadePop2 < densidadePop1){
-                printf("CARTA 2 VENCEU!  %f, densidadePop2\n");
+                printf("CARTA 2 VENCEU!  %f\n", densidadePop2);
             }else{
                 printf("===EMPATE!===\n");
             }
@@ -195,11 +201,11 @@ int main(){
             printf("COMPARANDO PIB PER CAPITA...\n");
             printf("ATRIBUTO COMPARADO (PIB PER CAPITA)\n");
             if(pib_per_capita1 > pib_per_capita2){
-                printf("CARTA 1 VENCEU! %f, pib_per_capita1\n");
+                printf("CARTA 1 VENCEU! %f\n", pib_per_capita1);
             }else if(pib_per_capita2 > pib_per_capita1){
-                printf("CARTA 2 VENCEU! %f, pib_per_capita2\n");
+                printf("CARTA 2 VENCEU! %f\n", pib_per_capita2);
             } else{
-                printf("===EMPATE!\n");
+                printf("===EMPATE!===\n");
             }
             break;
 
@@ -207,9 +213,9 @@ int main(){
             printf("COMPARANDO PONTOS TURISTICOS...\n");
             printf("ATRIBUTO COMPARADO (PONTOS TURISTICOS)\n");
             if(pontos1 > pontos2){
-                printf("CARTA 1 GANHOU! %d, pontos1\n");
+                printf("CARTA 1 GANHOU! %d\n", pontos1);
             }else if (pontos2 > pontos1){
-                printf("CARTA 2 GANHOU! %d, pontos2\n");
+                printf("CARTA 2 GANHOU! %d\n", pontos2);
             }else{
                 printf("===EMPATE!===\n");
             }
@@ -219,9 +225,9 @@ int main(){
             printf("COMPARANDO SUPER PODER...\n");
             printf("ATRIBUTO COMPARADO (SUPER PODER)\n");
             if(superPoder1 > superPoder2){
-                printf("CARTA 1 VENCEU! %f, superPoder1");
+                printf("CARTA 1 VENCEU! %f\n", superPoder1);
             }else if(superPoder2 > superPoder1){
-                printf("CARTA 2 VENCEU! %f, superPoder2\n");
+                printf("CARTA 2 VENCEU! %f\n", superPoder2);
             }else{
                 printf("===EMPATE!===\n");
             }
@@ -231,9 +237,28 @@ int main(){
             printf("OPCAO INVALIDA\n");
             break;
             }
+        break;
+
     case 2:
-     printf("SAINDO...\n");
+    {
+     int atributo1, atributo2;
+     printf("ESCOLHA OS ATRIBUTOS QUE DESEJA COMPARAR:\n");
+     printf("1. POPULACAO.\n");
+     printf("2. AREA.\n");
+     printf("3. PIB.\n");
+     printf("4. DENSIDADE POP.\n");
+     printf("5. PIB. PER CAPITA\n");
+     printf("6. PONTOS TURISTICOS.\n");
+     printf("7. SUPER PODER.\n");
+     printf("DIGITE O ATRIBUTO N1:\n");
+     scanf("%d", &atributo1);
+     printf("DIGITE O ATRIBUTO N2:\n");
+     scanf("%d", &atributo2);
+     
      break;
+    }
+    case 3:
+     printf("SAINDO\n");
 
     default:
      printf("OPCAO INVALIDA!\n");
