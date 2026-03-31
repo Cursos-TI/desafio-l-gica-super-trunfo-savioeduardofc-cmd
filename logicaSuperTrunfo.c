@@ -121,15 +121,16 @@ int main(){
      }
     //DECLARANDO A VARIÁVEL "OPCÃO" E INCLUINDO O MENU SWITCH:
     int opcao;
-
+     while (1){
+        
+    printf("====MENU PRINCIPAL====\n");
     printf("DIGITE UMA OPÇÃO:\n");
     printf("1. COMPARACAO DE ATRIBUTOS.\n");
     printf("2. COMPARE DOIS ATRIBUTOS DIFERENTES.\n");
     printf("3. SAIR.\n");
     scanf("%d", &opcao);
 
-    switch (opcao)
-    {
+    switch (opcao){
     case 1:
         {
         int subopcao = 0; 
@@ -237,6 +238,8 @@ int main(){
             printf("OPCAO INVALIDA\n");
             break;
             }
+        }
+
         break;
 
     case 2:
@@ -255,18 +258,115 @@ int main(){
      printf("DIGITE O ATRIBUTO N2:\n");
      scanf("%d", &atributo2);
      
+     if (atributo1 == atributo2){
+     printf("OPS, ESCOLHA ATRIBUTOS DIFERENTES!\n");
+     break;
+    }
+     int pontoss1 = 0;
+     int pontoss2 = 0;
+
+     switch (atributo1){
+        case 1:
+        if(populacao1 > populacao2) pontoss1++;
+        else if (populacao2 > populacao1) pontoss2++;
+        break;
+
+        case 2:
+        if(area1 > area2) pontoss1++;
+        else if (area2 > area1) pontoss2++;
+        break;
+
+        case 3:
+        if(pib1 > pib2) pontoss1++;
+        else if(pib2 > pib1) pontoss2++;
+        break;
+
+        case 4:
+        if (densidadePop1 < densidadePop2) pontoss1++;
+        else if(densidadePop2 < densidadePop1) pontoss2++;
+        break;
+
+        case 5: 
+        if(pib_per_capita1 > pib_per_capita2) pontoss1++;
+        else if(pib_per_capita2 > pib_per_capita1) pontoss2++;
+        break;
+
+        case 6:
+        if(pontos1 > pontos2) pontoss1++;
+        else if (pontos2 > pontos1) pontoss2++;
+        break;
+
+        case 7:
+        if(superPoder1 > superPoder2) pontoss1++;
+        else if (superPoder2 > superPoder1) pontoss2++;
+        break;
+
+        default:
+        printf("ATRIBUTO 1 INVLALIDO!\n");
+        break;
+        }
+
+     switch (atributo2){
+        case 1:
+        if(populacao1 > populacao2) pontoss1++;
+        else if (populacao2 > populacao1) pontoss2++;
+        break;
+
+        case 2:
+        if(area1 > area2) pontoss1++;
+        else if (area2 > area1) pontoss2++;
+        break;
+
+        case 3:
+        if(pib1 > pib2) pontoss1++;
+        else if(pib2 > pib1) pontoss2++;
+        break;
+
+        case 4:
+        if (densidadePop1 < densidadePop2) pontoss1++;
+        else if(densidadePop2 < densidadePop1) pontoss2++;
+        break;
+
+        case 5: 
+        if(pib_per_capita1 > pib_per_capita2) pontoss1++;
+        else if(pib_per_capita2 > pib_per_capita1) pontoss2++;
+        break;
+
+        case 6:
+        if(pontos1 > pontos2) pontoss1++;
+        else if (pontos2 > pontos1) pontoss2++;
+        break;
+
+        case 7:
+        if(superPoder1 > superPoder2) pontoss1++;
+        else if (superPoder2 > superPoder1) pontoss2++;
+        break;
+     
+        default:
+        printf("ATRIBUTO 2 INVALIDO!\n");
+        break;
+        }
+        if(pontoss1 == pontoss2){
+            printf("===EMPATE!===\n");
+        }else{
+           int vencedor = (pontoss1 > pontoss2)? 1:2;
+           printf("CARTA %d VENCEU!\n", vencedor);
+        }
+
      break;
     }
     case 3:
-     printf("SAINDO\n");
+     printf("SAINDO...\n");
+    break;
 
     default:
      printf("OPCAO INVALIDA!\n");
      break;
     }
+}
     return 0;
 }
-}
+
 
 
 
